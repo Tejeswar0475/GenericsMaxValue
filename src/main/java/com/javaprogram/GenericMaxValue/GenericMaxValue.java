@@ -1,49 +1,28 @@
 package com.javaprogram.GenericMaxValue;
 
-public class GenericMaxValue {	
-	public Integer getMaxValue(Integer firstValue, Integer secondValue, Integer thirdValue)
-	{
-		Integer max = firstValue;
-		if(secondValue.compareTo(max) > 0)
-		{
-			max=secondValue;
-		}
-		if(thirdValue.compareTo(max) > 0 )
-		{
-			max=thirdValue;
-		}
-		return max;
-	}
+public class GenericMaxValue<E> {
 	
-	public Float getMaxFloatValue(Float firstValue, Float secondValue, Float thirdValue)
+	E first, second,third;
+	public GenericMaxValue( E genericFirst, E genericSecond, E genericThird)
 	{
-		Float maxFloatValue = firstValue;
-		if(secondValue.compareTo(maxFloatValue) > 0)
-		{
-			maxFloatValue=secondValue;
-		}
-		if(thirdValue.compareTo(maxFloatValue) > 0 )
-		{
-			maxFloatValue=thirdValue;
-		}
-		return maxFloatValue;
+		this.first=genericFirst;
+		this.second=genericSecond;
+		this.third=genericThird;
 	}
-	
-	public String getMaxStringValue(String firstValue, String secondValue, String thirdValue)
-	{
-		String maxStringValue = firstValue; 
-		
-		if(secondValue.compareTo(maxStringValue) > 0)
+	public <E extends Comparable<E>> E threeDifferentValues(E genericFirstValue, E genericSecondValue, E genericThirdValue)
+	{	
+		E maxEValue = genericFirstValue; 
+		if(genericSecondValue.compareTo(maxEValue) > 0)
 		{
-			maxStringValue=secondValue;
+			genericFirstValue=genericSecondValue;
 		}
 		
-		if(thirdValue.compareTo(maxStringValue) > 0 )
+		if(genericThirdValue.compareTo(maxEValue) > 0 )
 		{
-			maxStringValue=thirdValue;
+			genericFirstValue=genericThirdValue;
 		}
-		return maxStringValue;
-	}
-	
-
+		return genericFirstValue;
+	} 
+						
 }
+	

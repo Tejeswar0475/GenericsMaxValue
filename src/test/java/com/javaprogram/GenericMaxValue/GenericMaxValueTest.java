@@ -4,88 +4,39 @@ import static org.junit.Assert.*;
 import java.lang.*;
 import org.junit.Test;
 import org.junit.*;
-public class GenericMaxValueTest {
+public class GenericMaxValueTest<E> {
+	
+	@Test
+	public void genericsOfThreeOperaations()
+	{
+		Integer expectedInteger=3;
+		Float expectedFloat=3.3f;
+		String expectedString="Zebra";
+		
+		Integer genericFirstInteger=1;
+		Integer genericSecondInteger=2;
+		Integer genericThirdInteger=3;
+		
+		Float genericFirstFloat=1.1f;
+		Float genericSecondFloat=2.2f;
+		Float genericThirdFloat=3.3f;
+		
+		String genericFirstString="Cat";
+		String genericSecondString="Lion";
+		String genericThirdString="Zebra";
+		
+		GenericMaxValue genericMaxValue=new GenericMaxValue<Integer>(genericFirstInteger,genericSecondInteger,genericThirdInteger);		
+		E firstResult =(E) genericMaxValue.threeDifferentValues(genericFirstInteger,genericSecondInteger,genericThirdInteger);
+		
+		GenericMaxValue genericMaxValue1=new GenericMaxValue<Float>(genericFirstFloat,genericSecondFloat,genericThirdFloat);
+		E secondResult =(E) genericMaxValue1.threeDifferentValues(genericFirstFloat,genericSecondFloat,genericThirdFloat);
+		
+		GenericMaxValue genericMaxValue2=new GenericMaxValue<String>(genericFirstString,genericSecondString,genericThirdString);
+		E thirdResult=(E) genericMaxValue2.threeDifferentValues(genericFirstString,genericSecondString,genericThirdString);
+		
+		assertEquals(firstResult,expectedInteger);
+		assertEquals(secondResult,expectedFloat);
+		assertEquals(thirdResult,expectedString);
+	}
 
-	@Test
-	public void givenIntegerFirstNumberGreater()
-	{
-		Integer expected=100;
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		Integer actualResult=genericMaxValue.getMaxValue(100, 25, 50);
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenIntegerSecondNumberGreater()
-	{
-		Integer expected=250;
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		Integer actualResult=genericMaxValue.getMaxValue(100, 250, 50);
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenIntegerThirdNumberGreater()
-	{
-		Integer expected=500;
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		Integer actualResult=genericMaxValue.getMaxValue(100, 250, 500);
-		assertEquals(expected,actualResult);
-	}
-	
-	
-	@Test
-	public void givenFloatFirstNumberGreater()
-	{
-		Float expected=100.25f;
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		Float actualResult=genericMaxValue.getMaxFloatValue(100.25f, 98.50f, 90.50f);
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenFloatSecondNumberGreater()
-	{
-		Float expected=100.25f;
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		Float actualResult=genericMaxValue.getMaxFloatValue(98.50f,100.25f, 90.50f);
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenFloatThirdNumberGreater()
-	{
-		Float expected=100.25f;
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		Float actualResult=genericMaxValue.getMaxFloatValue( 25.75f, 50.75f,100.25f);
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenStringFirstValueGreater()
-	{
-		String expected="Zebra";
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		String actualResult=genericMaxValue.getMaxStringValue("Zebra", "Cat" ,"Lion");
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenStringSecondValueGreater()
-	{
-		String expected="Zebra";
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		String actualResult=genericMaxValue.getMaxStringValue("Cat","Zebra","Lion");
-		assertEquals(expected,actualResult);
-	}
-	
-	@Test
-	public void givenStringThirdValueGreater()
-	{
-		String expected="Zebra";
-		GenericMaxValue genericMaxValue=new GenericMaxValue();
-		String actualResult=genericMaxValue.getMaxStringValue("Cat","Lion","Zebra");
-		assertEquals(expected,actualResult);
-	}
-	
 }
