@@ -60,4 +60,32 @@ public class GenericMaxValueTest {
 		Float actualResult=genericMaxValue.getMaxFloatValue( 25.75f, 50.75f,100.25f);
 		assertEquals(expected,actualResult);
 	}
+	
+	@Test
+	public void givenStringFirstValueGreater()
+	{
+		String expected="Zebra";
+		GenericMaxValue genericMaxValue=new GenericMaxValue();
+		String actualResult=genericMaxValue.getMaxStringValue("Zebra", "Cat" ,"Lion");
+		assertEquals(expected,actualResult);
+	}
+	
+	@Test
+	public void givenStringSecondValueGreater()
+	{
+		String expected="Zebra";
+		GenericMaxValue genericMaxValue=new GenericMaxValue();
+		String actualResult=genericMaxValue.getMaxStringValue("Cat","Zebra","Lion");
+		assertEquals(expected,actualResult);
+	}
+	
+	@Test
+	public void givenStringThirdValueGreater()
+	{
+		String expected="Zebra";
+		GenericMaxValue genericMaxValue=new GenericMaxValue();
+		String actualResult=genericMaxValue.getMaxStringValue("Cat","Lion","Zebra");
+		assertEquals(expected,actualResult);
+	}
+	
 }

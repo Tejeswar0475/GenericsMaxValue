@@ -28,5 +28,22 @@ public class GenericMaxValue {
 		}
 		return maxFloatValue;
 	}
+	
+	public String getMaxStringValue(String firstValue, String secondValue, String thirdValue)
+	{
+		String maxStringValue = firstValue; 
+		
+		if(secondValue.compareTo(maxStringValue) > 0)
+		{
+			maxStringValue=secondValue;
+		}
+		
+		if(thirdValue.compareTo(maxStringValue) > 0 )
+		{
+			maxStringValue=thirdValue;
+		}
+		return maxStringValue;
+	}
+	
 
 }
